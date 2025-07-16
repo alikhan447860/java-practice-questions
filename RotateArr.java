@@ -1,7 +1,7 @@
 public class RotateArr{
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
-        int k = 2;  // Number of positions to rotate
+        int k = 4;  // Number of positions to rotate
         int n = arr.length;
 
         k = k % n;  // Handle cases where k > length of array
