@@ -1,23 +1,34 @@
 import java.util.*;
 public class Demo{
     public static void main(String[] args) {
-        int arr[]={1,2,400,3,56,4};
-        HashSet<Integer>set=new HashSet<>();
-        for(int i=0;i<arr.length;i++){
-            set.add(arr[i]);
+       class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data=data;
+            this.next=null;
         }
-int maxlen=0;
-for(int num:arr){
-    if(!set.contains(num-1)){
-        int current=num;
-        int count=1;
-        while(set.contains(current+1)){
-            count++;
-            current++;
+       }
+       Node head=new Node(1);
+       Node second=new Node(2);
+       Node third=new Node(3);
+       Node fourth =new Node(4);
+
+     head.next=second;
+     second.next=third;
+     third.next=fourth;
+     fourth.next=null;
+     Node slow=head;
+     Node fast=head;
+     while(fast!=null && fast.next!=null){
+        slow=slow.next;
+        fast=fast.next.next;
+        if(slow==fast){
+            System.out.println("Cycle detedcted");
+            return;
         }
-        maxlen=Math.max(maxlen,count);
+     }
+     System.out.println("No cycle detected");
+
     }
-}    
-System.out.println("The length of the longest consecutive sequence is : "+maxlen);
-}
 }
