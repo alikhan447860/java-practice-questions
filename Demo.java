@@ -1,34 +1,22 @@
 import java.util.*;
 public class Demo{
     public static void main(String[] args) {
-       class Node{
-        int data;
-        Node next;
-        Node(int data){
-            this.data=data;
-            this.next=null;
-        }
-       }
-       Node head=new Node(1);
-       Node second=new Node(2);
-       Node third=new Node(3);
-       Node fourth =new Node(4);
-
-     head.next=second;
-     second.next=third;
-     third.next=fourth;
-     fourth.next=null;
-     Node slow=head;
-     Node fast=head;
-     while(fast!=null && fast.next!=null){
-        slow=slow.next;
-        fast=fast.next.next;
-        if(slow==fast){
-            System.out.println("Cycle detedcted");
-            return;
+      int[] arr = { 5, 1, 4, 2, 8 };
+     
+     for(int i=0;i<arr.length-1;i++){
+        int minindex=i;
+        for(int j=i+1;j<arr.length-1;j++){
+            if(arr[j]<arr[minindex]){
+              minindex=j;
+            }
+            int temp=arr[i];
+            arr[i]=arr[minindex];
+            arr[minindex]=temp;
         }
      }
-     System.out.println("No cycle detected");
 
+for(int val:arr){
+    System.out.print(val+" ");
+}
     }
 }
