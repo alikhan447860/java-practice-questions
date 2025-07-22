@@ -8,7 +8,7 @@ class Node {
     }
 }
 
-public class MaxDepthDFS {
+public class MaxDepthDFS{
     public static int maxDepth(Node root) {
         if (root == null) return 0;
 
